@@ -10,7 +10,7 @@ const app = express();
 
 // Middlewares
 app.use(cors());
-app.use(morgan('dev'));	
+app.use(morgan('dev'));
 app.use(helmet());
 app.use(express.json());
 
@@ -44,7 +44,7 @@ app.get('/', (_req, res) => {
 });
 
 // Routes
-app.use('/api/messages', require('./components/messages/routes.messages'));
+app.use('/api/v1/messages', require('./components/messages/routes.messages'));
 
 // 404 Route: This route should be the last route
 app.get('*', (_req, res) => {
