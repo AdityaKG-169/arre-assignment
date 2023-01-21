@@ -71,7 +71,7 @@ const createMessage = async (context) => {
 
 		return {
 			type: 'success',
-			status: 200,
+			status: 201,
 			message: 'Message created successfully',
 			data: savedMessage,
 			uniqueCode: 'MESSAGE_CREATED_SUCCESSFULLY',
@@ -90,6 +90,8 @@ const createMessage = async (context) => {
 
 // api to load messages in the group in the paginated manner
 // @param context: the context object containing the {groupId, page, limit}
+// Page starts from 1 and limit starts from 1
+// If page or limit is not provided, default values are used. Default page is 1 and default limit is 10
 const loadMessages = async (context) => {
 	try {
 		const { groupId, page, limit } = context;
